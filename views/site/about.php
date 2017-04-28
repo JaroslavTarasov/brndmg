@@ -4,8 +4,13 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'Hi';
 $this->params['breadcrumbs'][] = $this->title;
+$connection = Yii::$app->db;
+if ($connection)
+    echo "Есть подключение к БД";
+else
+    echo "Нет подключения к БД";
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
