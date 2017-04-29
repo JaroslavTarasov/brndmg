@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 use yii\web\IdentityInterface;
+use yii\db\ActiveRecord;
+use yii\base\Model;
 
 /**
  * This is the model class for table "user_login".
@@ -16,9 +18,10 @@ use yii\web\IdentityInterface;
  */
 class UserLogin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-    /**
-     * @inheritdoc
-     */
+    public $name;
+    public $surname;
+    public $username;
+
     public static function tableName()
     {
         return 'user_login';

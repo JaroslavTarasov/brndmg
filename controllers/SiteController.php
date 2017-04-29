@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\UserLogin;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -77,7 +78,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             //return $this->goBack();
-            return $this->render('renamer');
+           return $this->render('renamer');
         }
         return $this->render('login', [
             'model' => $model,
@@ -123,4 +124,18 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-}
+
+    public function actionRenamer()
+    {
+        $model=new UserLogin();
+        if($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            Yii::$app->session->setFlash('correct');
+        }
+        else
+        {
+            return $this->render('renamer', ['model'=>$model,]);
+        }
+    }
+
+ }
