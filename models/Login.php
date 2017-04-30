@@ -4,11 +4,9 @@ namespace app\models;
 
 use Yii;
 use yii\web\IdentityInterface;
-use yii\db\ActiveRecord;
-use yii\base\Model;
 
 /**
- * This is the model class for table "user_login".
+ * This is the model class for table "login".
  *
  * @property integer $id
  * @property string $name
@@ -16,15 +14,14 @@ use yii\base\Model;
  * @property string $password
  * @property string $username
  */
-class UserLogin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
+class Login extends \yii\db\ActiveRecord implements IdentityInterface
 {
-    public $name;
-    public $surname;
-    public $username;
-
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
-        return 'user_login';
+        return 'login';
     }
 
     /**
@@ -84,7 +81,7 @@ class UserLogin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterfa
 
     public static function findByUsername($username)
     {
-        return self::findOne(['username'=>$username]);
+        return self::findOne(['username' => $username]);
     }
 
     public function validatePassword($password)
