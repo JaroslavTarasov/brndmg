@@ -6,14 +6,18 @@ class m170430_085550_login extends Migration
 {
     public function up()
     {
-
+        $this->createTable('login', [
+            'id' => Schema::TYPE_PK,
+            'name' => Schema::TYPE_STRING,
+            'surname' => Schema::TYPE_STRING,
+            'password' => Schema::TYPE_STRING,
+            'username' => Schema::TYPE_STRING,
+        ]);
     }
 
     public function down()
     {
-        echo "m170430_085550_login cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('news');
     }
 
     /*

@@ -88,4 +88,5 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->password === $password;
     }
+
 }
