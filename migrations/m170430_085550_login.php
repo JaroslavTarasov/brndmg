@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use yii\db\Schema;
 
 class m170430_085550_login extends Migration
 {
@@ -11,23 +12,15 @@ class m170430_085550_login extends Migration
             'name' => Schema::TYPE_STRING,
             'surname' => Schema::TYPE_STRING,
             'password' => Schema::TYPE_STRING,
+            'passwordenc' => Schema::TYPE_STRING,
             'username' => Schema::TYPE_STRING,
+            'mail' => Schema::TYPE_STRING,
         ]);
     }
 
     public function down()
     {
-        $this->dropTable('news');
+        $this->dropTable('login');
     }
 
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

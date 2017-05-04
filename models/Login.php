@@ -11,41 +11,35 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $name
  * @property string $surname
- * @property string $password
+ * @property string $passwordenc
  * @property string $username
  */
 class Login extends \yii\db\ActiveRecord implements IdentityInterface
 {
-    /**
-     * @inheritdoc
-     */
+
     public static function tableName()
     {
         return 'login';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
-            [['name', 'surname', 'username'], 'string', 'max' => 128],
+            [['name', 'surname', 'username', 'mail', 'passwordenc'], 'string', 'max' => 128],
             [['password'], 'string', 'max' => 16],
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
             'name' => 'Name',
             'surname' => 'Surname',
+            'passwordenc' => 'Passwordenc',
             'password' => 'Password',
             'username' => 'Username',
+            'mail' => 'Mail',
         ];
     }
 
@@ -86,7 +80,12 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return Yii::$app->security->validatePassword($password, $this->passwordenc);
+    }
+
+    public function setPassword($password)
+    {
+        $this->passwordenc = Yii::$app->security->generatePasswordHash($password);
     }
 
 }

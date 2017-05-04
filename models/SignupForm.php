@@ -10,12 +10,14 @@ class SignupForm extends Model
 {
     public $username;
     public $password;
+    public $mail;
 
     public function attributeLabels()
     {
         return [
             'username' => 'Username',
             'password' => 'Password',
+            'mail' => 'Mail',
         ];
     }
 
@@ -24,7 +26,12 @@ class SignupForm extends Model
         return [
             [['username'], 'string', 'max' => 128],
             ['username', 'unique', 'targetClass' => '\app\models\Login', 'message' => 'Username exists already. Try another'],
+
             [['password'], 'string', 'max' => 16],
+
+            [['mail'], 'email'],
+            ['mail', 'filter', 'filter' => 'trim'],
+            ['mail', 'unique', 'targetClass' => '\app\models\Login', 'message' => 'Mail exists already. Try another'],
         ];
     }
 
@@ -33,7 +40,8 @@ class SignupForm extends Model
         if ($this->validate()) {
             $user = new Login();
             $user->username = $this->username;
-            $user->password = $this->password;
+            $user->mail = $this->mail;
+            $user->setPassword($this->password);
             $user->save();
 
             return $user;

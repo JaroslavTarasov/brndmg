@@ -16,6 +16,7 @@ $this->title = 'Sign up';
             <fieldset>
                 <legend><?= Yii::t('app', 'User') ?></legend>
                 <?= $form->field($model, 'username') ?>
+                <?= $form->field($model, 'mail') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
             </fieldset>
             <div class="form-group">
