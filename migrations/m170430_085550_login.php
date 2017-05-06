@@ -15,6 +15,7 @@ class m170430_085550_login extends Migration
             'passwordenc' => Schema::TYPE_STRING,
             'username' => Schema::TYPE_STRING,
             'mail' => Schema::TYPE_STRING,
+            'balance' => Schema::TYPE_INTEGER,
         ]);
     }
 

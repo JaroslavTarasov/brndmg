@@ -36,7 +36,8 @@ class LoginController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Login::find(),
+            'query' => Login::find()->where(['id'=>Yii::$app->user->getId()]),
+            //->where(['id'=>Yii::$app->user->getId()])->one()
         ]);
 
         return $this->render('index', [

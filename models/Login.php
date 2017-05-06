@@ -13,6 +13,7 @@ use yii\web\IdentityInterface;
  * @property string $surname
  * @property string $passwordenc
  * @property string $username
+ * @property string $balance
  */
 class Login extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -27,6 +28,7 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['name', 'surname', 'username', 'mail', 'passwordenc'], 'string', 'max' => 128],
             [['password'], 'string', 'max' => 16],
+            [['balance'], 'integer'],
         ];
     }
 
@@ -40,6 +42,7 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
             'password' => 'Password',
             'username' => 'Username',
             'mail' => 'Mail',
+            'balance' => 'Balance'
         ];
     }
 

@@ -15,23 +15,7 @@ $this->title = 'FIRST DRAFT';
 
     <div class="body-content">
 
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Присоединяйся сейчас</h2>
-
-                <p>Бесплатная регистрация</p>
-
-                <p><a class="btn btn-default" href="index.php?r=site%2Fsignup/">Sign Up &raquo;</a></p>
-            </div>
-            <div class="col-md-6">
-                <h2>Авторизация</h2>
-
-                <p>Войди, если уже зарегистрирован</p>
-
-                <p><a class="btn btn-default" href="index.php?r=site%2Flogin/">Log in &raquo;</a></p>
-            </div>
-
-        </div>
+        <h3>Управляй своим счетом! Делись баллами с друзьями!</h3>
 
     </div>
 </div>

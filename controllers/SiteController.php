@@ -77,8 +77,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            //return $this->goBack();
-            $this->redirect(\Yii::$app->urlManager->createUrl("login/index"));
+            return $this->goBack();
+            //$this->redirect(\Yii::$app->urlManager->createUrl("login/index"));
         }
         return $this->render('login', [
             'model' => $model,
@@ -138,5 +138,10 @@ class SiteController extends Controller
         return $this->render('signup', [
             'model' => $model,
         ]);
+    }
+
+    public function actionBalance()
+    {
+        return $this->render('balance');
     }
 }
