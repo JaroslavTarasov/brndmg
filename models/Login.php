@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\web\IdentityInterface;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "login".
@@ -91,4 +92,4 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
         $this->passwordenc = Yii::$app->security->generatePasswordHash($password);
     }
 
-}
+    }

@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\BalanceForm;
 
 /**
  * LoginController implements the CRUD actions for Login model.
@@ -33,11 +34,11 @@ class LoginController extends Controller
      * Lists all Login models.
      * @return mixed
      */
+
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Login::find()->where(['id'=>Yii::$app->user->getId()]),
-            //->where(['id'=>Yii::$app->user->getId()])->one()
+            'query' => Login::find()->where(['id' => Yii::$app->user->getId()]),
         ]);
 
         return $this->render('index', [

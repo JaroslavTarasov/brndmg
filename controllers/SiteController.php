@@ -140,8 +140,4 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionBalance()
-    {
-        return $this->render('balance');
-    }
 }
