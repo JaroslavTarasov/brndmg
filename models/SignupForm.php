@@ -26,7 +26,6 @@ class SignupForm extends Model
         return [
             [['username'], 'string', 'max' => 128],
             ['username', 'unique', 'targetClass' => '\app\models\Login', 'message' => 'Username exists already. Try another'],
-
             [['password'], 'string', 'max' => 16],
 
             [['mail'], 'email'],

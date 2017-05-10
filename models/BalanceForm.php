@@ -3,8 +3,11 @@
 namespace app\models;
 
 use app\models\Login;
+use Faker\Provider\DateTime;
 use yii\base\Model;
 use Yii;
+use yii\db\Exception;
+
 
 class BalanceForm extends Model
 {
@@ -25,9 +28,8 @@ class BalanceForm extends Model
         return [
             ['balance', 'filter', 'filter' => 'trim'],
             ['balance', 'integer', 'min' => 0],
-            ['balance', 'safe'],
-
-            //['username', 'unique', 'targetClass' => '\app\models\Login', 'message' => 'Username exists already. Try another'],
+            //['username', 'string', 'max' => 128],
+            //['username', 'exist', 'targetClass' => '\app\models\Login', 'message' => 'Try another'],
         ];
     }
 
@@ -37,22 +39,32 @@ class BalanceForm extends Model
             $bal = Login::findOne(Yii::$app->user->getId());
             $bal->balance += $this->balance;
             $bal->save();
-
             return $bal;
         }
         return 0;
     }
 
-
     public function sendbal()
     {
         if ($this->validate()) {
             $desc = Login::findOne(Yii::$app->user->getId());
-            $desc->balance -= $this->balance;
-            $desc->save();
-            $inc = Login::findOne(['username' => Yii::$app->request->post($this->username)]);
-            $inc->balance += $this->balance;
-            $inc->save();
+            if ($desc->balance >= $this->balance) {
+                $desc->balance -= $this->balance;
+                $desc->save();
+                $inc = Login::findOne(['username' => Yii::$app->request->post($this->username)]);
+                $inc->balance += $this->balance;
+                $inc->save();
+                $log = new Logs();
+                $log->howmuch = $this->balance;
+                $log->who = $desc->username;
+                $log->towhom = $inc->username;
+                $log->date = new \yii\db\Expression('NOW()');
+                $log->save();
+            } else {
+                throw new Exception('I try to send more than I have');
+            }
+            return $desc && $inc && $log;
         }
+        return 0;
     }
 }

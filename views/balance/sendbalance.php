@@ -7,6 +7,9 @@ use yii\grid\GridView;
 use yii\bootstrap\ActiveForm;
 use app\models\BalanceForm;
 
+//$users = Login::find()->all();
+//$items = \yii\helpers\ArrayHelper::getColumn($users, 'username');
+//$params = ['prompt' => 'Choose name'];
 $this->title = 'Share';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -17,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <?php $form = ActiveForm::begin(['id' => 'form-balance']); ?>
+
         <div>
             <fieldset>
                 <?= $form->field($model, 'username')->textInput() ?>
@@ -29,5 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
     </div>
+
 
 </div>

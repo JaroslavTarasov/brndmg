@@ -10,14 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\BalanceForm;
 
-/**
- * LoginController implements the CRUD actions for Login model.
- */
 class BalanceController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
@@ -30,13 +24,13 @@ class BalanceController extends Controller
         ];
     }
 
-
     public function actionSendbalance()
     {
         $model = new BalanceForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->sendbal()) {
-            } return $this->goHome();
+            }
+            return $this->goHome();
         }
 
         return $this->render('sendbalance', [
@@ -54,7 +48,7 @@ class BalanceController extends Controller
         $model = new BalanceForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->increase()) {
-               return $this->redirect(\Yii::$app->urlManager->createUrl("balance/balance"));
+                return $this->redirect(\Yii::$app->urlManager->createUrl("balance/balance"));
             }
         }
 
@@ -62,22 +56,8 @@ class BalanceController extends Controller
             'dataProvider' => $dataProvider,
             'model' => $model,
         ]);
-
-
-        /*if ($model->load(Yii::$app->request->post())) {
-            return $user = $model->increase();        }
-        return $this->render('balance', [
-            'model' => $model,
-        ]);*/
     }
 
-    /**
-     * Finds the Login model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Login the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Login::findOne($id)) !== null) {
