@@ -15,6 +15,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>Please fill out the following fields to login:</p>
 
+    <div class="col-lg-offset-1" style="color:#999;">
+        You may login with your <strong>username</strong> and <strong>password</strong>.<br>
+        Or use <strong>Sign Up</strong> section to join now.
+    </div>
+    <br>
+
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
         'layout' => 'horizontal',
@@ -40,8 +46,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php ActiveForm::end(); ?>
 
-    <div class="col-lg-offset-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
-    </div>
+
 </div>

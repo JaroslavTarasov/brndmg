@@ -9,12 +9,14 @@ use Yii;
 class BalanceForm extends Model
 {
     public $balance;
+    public $username;
 
 
     public function attributeLabels()
     {
         return [
             'balance' => 'Balance',
+            'username' => 'Username',
         ];
     }
 
@@ -22,19 +24,35 @@ class BalanceForm extends Model
     {
         return [
             ['balance', 'filter', 'filter' => 'trim'],
-            ['balance', 'integer'],
+            ['balance', 'integer', 'min' => 0],
+            ['balance', 'safe'],
+
+            //['username', 'unique', 'targetClass' => '\app\models\Login', 'message' => 'Username exists already. Try another'],
         ];
     }
 
     public function increase()
     {
         if ($this->validate()) {
-            $user = Login::findOne(Yii::$app->user->getId());
-            $user->balance += $this->balance;
-            $user->save();
+            $bal = Login::findOne(Yii::$app->user->getId());
+            $bal->balance += $this->balance;
+            $bal->save();
 
-            return $user;
+            return $bal;
         }
         return 0;
+    }
+
+
+    public function sendbal()
+    {
+        if ($this->validate()) {
+            $desc = Login::findOne(Yii::$app->user->getId());
+            $desc->balance -= $this->balance;
+            $desc->save();
+            $inc = Login::findOne(['username' => Yii::$app->request->post($this->username)]);
+            $inc->balance += $this->balance;
+            $inc->save();
+        }
     }
 }

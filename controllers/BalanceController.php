@@ -30,10 +30,20 @@ class BalanceController extends Controller
         ];
     }
 
-    /**
-     * Lists all Login models.
-     * @return mixed
-     */
+
+    public function actionSendbalance()
+    {
+        $model = new BalanceForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->sendbal()) {
+            } return $this->goHome();
+        }
+
+        return $this->render('sendbalance', [
+            'model' => $model,
+
+        ]);
+    }
 
     public function actionBalance()
     {

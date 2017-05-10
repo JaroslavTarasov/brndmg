@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     //$balance = (new Query())->select('balance')->where(['id' => Yii::$app->user->getId()]);
     //$balance = new Login::find()->where(['id'=>Yii::$app->user->getId()]);
     //echo $balance->createCommand()->getRawSql();
+
     ?>
 
     <?= GridView::widget([
