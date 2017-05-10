@@ -34,10 +34,10 @@ class Logs extends \yii\db\ActiveRecord
     {
         return [
             'operation' => 'Operation',
-            'who' => 'Who',
-            'towhom' => 'Towhom',
-            'howmuch' => 'Howmuch',
-            'date' => 'Date',
+            'who' => 'Отправитель',
+            'towhom' => 'Кому',
+            'howmuch' => 'Сумма перевода',
+            'date' => 'Точное время перевода',
         ];
     }
 

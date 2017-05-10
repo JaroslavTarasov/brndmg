@@ -7,15 +7,15 @@ use yii\grid\GridView;
 use yii\bootstrap\ActiveForm;
 use app\models\BalanceForm;
 
-//$users = Login::find()->all();
-//$items = \yii\helpers\ArrayHelper::getColumn($users, 'username');
-//$params = ['prompt' => 'Choose name'];
+// TODO $users = Login::find()->all();
+// TODO $items = \yii\helpers\ArrayHelper::getColumn($users, 'username');
+// TODO $params = ['prompt' => 'Choose name'];
 $this->title = 'Share';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="login-balance">
 
-    <h1><?= Html::encode('Sent your balance to') ?></h1>
+    <h1><?= Html::encode('Укажите имя пользователя в системе и сумму перевода') ?></h1>
 
 
     <div class="row">
@@ -24,10 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <div>
             <fieldset>
                 <?= $form->field($model, 'username')->textInput() ?>
+                <!-- TODO <!-- $form->field($model, 'username')->dropDownList($items,$params) ?> -->
                 <?= $form->field($model, 'balance')->textInput() ?>
             </fieldset>
             <div class="form-group">
-                <?= Html::submitButton('Sent balance', ['class' => 'btn btn-primary', 'name' => 'inc-button']) ?>
+                <?= Html::submitButton('Отправить!', ['class' => 'btn btn-primary', 'name' => 'inc-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>

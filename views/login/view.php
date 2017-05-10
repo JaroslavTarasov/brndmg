@@ -6,23 +6,22 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Login */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Logins', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = $model->username;
+//$this->params['breadcrumbs'][] = ['label' => 'Logins', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="login-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'username',
             'name',
             'surname',

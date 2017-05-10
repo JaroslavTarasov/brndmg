@@ -37,13 +37,13 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'surname' => 'Surname',
-            'passwordenc' => 'Passwordenc',
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'passwordenc' => 'Пароль',
             'password' => 'Password',
-            'username' => 'Username',
-            'mail' => 'Mail',
-            'balance' => 'Balance'
+            'username' => 'Имя пользователя',
+            'mail' => 'E-mail',
+            'balance' => 'Баланс'
         ];
     }
 

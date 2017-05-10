@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Logs;
 use Yii;
 use app\models\Login;
 use yii\data\ActiveDataProvider;
@@ -30,7 +31,7 @@ class BalanceController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->sendbal()) {
             }
-            return $this->goHome();
+            return $this->redirect(\Yii::$app->urlManager->createUrl("logs/index"));
         }
 
         return $this->render('sendbalance', [

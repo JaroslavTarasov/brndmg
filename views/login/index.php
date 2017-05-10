@@ -6,8 +6,8 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Logins';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Редактировать личные данные';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="login-index">
 
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'summary' => false,
         'columns' => [
            // ['class' => 'yii\grid\SerialColumn'],
             'name',

@@ -7,17 +7,17 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Войти';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+    <p>Пожалуйста, заполните все поля ниже:</p>
 
     <div class="col-lg-offset-1" style="color:#999;">
-        You may login with your <strong>username</strong> and <strong>password</strong>.<br>
-        Or use <strong>Sign Up</strong> section to join now.
+       Можете войти сейчас, используя <strong>username</strong> и <strong>password</strong>.<br>
+        Или нажмите <strong>Зарегистрироваться</strong>, чтобы присоединиться прямо сейчас.
     </div>
     <br>
 

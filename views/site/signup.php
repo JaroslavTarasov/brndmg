@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Sign up';
+$this->title = 'Присоединиться сейчас';
 ?>
 
 
@@ -12,7 +12,7 @@ $this->title = 'Sign up';
         <?= Html::encode($this->title) ?>
     </h1>
 
-    <p>Please fill out the following fields to sign up:</p>
+    <p>Пожалуйста, заполните все поля ниже:</p>
 
     <br>
 
@@ -26,7 +26,7 @@ $this->title = 'Sign up';
                 <?= $form->field($model, 'password')->passwordInput() ?>
             </fieldset>
             <div class="form-group">
-                <?= Html::submitButton('Sign Up', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                <?= Html::submitButton('Присоединиться!', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>

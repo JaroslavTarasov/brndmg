@@ -28,8 +28,9 @@ class BalanceForm extends Model
         return [
             ['balance', 'filter', 'filter' => 'trim'],
             ['balance', 'integer', 'min' => 0],
-            //['username', 'string', 'max' => 128],
-            //['username', 'exist', 'targetClass' => '\app\models\Login', 'message' => 'Try another'],
+
+            // TODO ['username', 'string', 'max' => 128],
+            // TODO ['username', 'exist', 'targetClass' => '\app\models\Login', 'message' => 'Try another'],
         ];
     }
 
