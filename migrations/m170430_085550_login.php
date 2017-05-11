@@ -8,14 +8,13 @@ class m170430_085550_login extends Migration
     public function up()
     {
         $this->createTable('login', [
-            'id' => Schema::TYPE_PK,
-            'name' => Schema::TYPE_STRING,
-            'surname' => Schema::TYPE_STRING,
-            'password' => Schema::TYPE_STRING,
-            'passwordenc' => Schema::TYPE_STRING,
-            'username' => Schema::TYPE_STRING,
-            'mail' => Schema::TYPE_STRING,
-            'balance' => Schema::TYPE_INTEGER,
+            'id' => $this->primaryKey(),
+            'name' => $this->string(128),
+            'surname' => $this->string(128),
+            'password' => $this->string(16),
+            'passwordenc' => $this->string(128),
+            'username' => $this->string(128),
+            'mail' => $this->string(128),
         ]);
     }
 

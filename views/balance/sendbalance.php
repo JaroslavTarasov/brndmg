@@ -7,9 +7,9 @@ use yii\grid\GridView;
 use yii\bootstrap\ActiveForm;
 use app\models\BalanceForm;
 
-// TODO $users = Login::find()->all();
-// TODO $items = \yii\helpers\ArrayHelper::getColumn($users, 'username');
-// TODO $params = ['prompt' => 'Choose name'];
+$users = Login::find()->where(['<>', 'id', Yii::$app->user->getId()])->all();
+$items = \yii\helpers\ArrayHelper::map($users, 'username', 'username');
+//$params = ['prompt' => 'Выберите имя'];
 $this->title = 'Share';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -23,8 +23,8 @@ $this->title = 'Share';
 
         <div>
             <fieldset>
-                <?= $form->field($model, 'username')->textInput() ?>
-                <!-- TODO <!-- $form->field($model, 'username')->dropDownList($items,$params) ?> -->
+                <!--  $form->field($model, 'username')->textInput()  -->
+                <?= $form->field($model, 'username')->dropDownList($items) ?>
                 <?= $form->field($model, 'balance')->textInput() ?>
             </fieldset>
             <div class="form-group">

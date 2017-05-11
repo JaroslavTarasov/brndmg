@@ -18,19 +18,17 @@ class BalanceForm extends Model
     public function attributeLabels()
     {
         return [
-            'balance' => 'Balance',
-            'username' => 'Username',
+            'balance' => 'Сумма',
+            'username' => 'Кому отправить',
         ];
     }
 
     public function rules()
     {
         return [
-            ['balance', 'filter', 'filter' => 'trim'],
-            ['balance', 'integer', 'min' => 0],
 
-            // TODO ['username', 'string', 'max' => 128],
-            // TODO ['username', 'exist', 'targetClass' => '\app\models\Login', 'message' => 'Try another'],
+            ['balance','number', 'min' => 0],
+            ['username', 'required'],
         ];
     }
 

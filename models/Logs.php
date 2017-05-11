@@ -11,7 +11,7 @@ use Yii;
  * @property integer $operation
  * @property string $who
  * @property string $towhom
- * @property integer $howmuch
+ * @property string $howmuch
  * @property string $date
  */
 class Logs extends \yii\db\ActiveRecord
@@ -24,7 +24,7 @@ class Logs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['howmuch'], 'integer'],
+            [['howmuch'], 'number'],
             [['date'], 'safe'],
             [['who', 'towhom'], 'string', 'max' => 128],
         ];

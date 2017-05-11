@@ -29,7 +29,7 @@ class Login extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['name', 'surname', 'username', 'mail', 'passwordenc'], 'string', 'max' => 128],
             [['password'], 'string', 'max' => 16],
-            [['balance'], 'integer'],
+            [['balance'], 'number'],
         ];
     }
 
