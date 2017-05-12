@@ -6,6 +6,7 @@ use app\models\Login;
 use Faker\Provider\DateTime;
 use yii\base\Model;
 use Yii;
+use yii\base\UserException;
 use yii\db\Exception;
 
 
@@ -27,8 +28,7 @@ class BalanceForm extends Model
     {
         return [
 
-            ['balance','number', 'min' => 0],
-            ['username', 'required'],
+            ['balance', 'number', 'min' => 0],
         ];
     }
 
@@ -60,7 +60,7 @@ class BalanceForm extends Model
                 $log->date = new \yii\db\Expression('NOW()');
                 $log->save();
             } else {
-                throw new Exception('I try to send more than I have');
+                throw new UserException('Вы пытаетесь отправить больше, чем имеете');
             }
             return $desc && $inc && $log;
         }

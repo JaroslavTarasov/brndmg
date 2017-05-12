@@ -7,7 +7,7 @@ class m170511_031551_add_balance_column_to_login_table extends Migration
 
     public function up()
     {
-        $this->addColumn('login', 'balance', $this->float());
+        $this->addColumn('login', 'balance', 'NUMERIC(19,4)');
     }
 
     public function down()

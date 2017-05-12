@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = $name;
+//$this->title = $name;
 ?>
 <div class="site-error">
 
@@ -18,10 +18,7 @@ $this->title = $name;
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
+        Попробуйте ещё раз, вернувшись на предыдущую страницу
     </p>
 
 </div>

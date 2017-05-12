@@ -13,7 +13,8 @@ $config = [
             'enablePrettyUrl' => true,
             'rules' => ['<alias:login|signup>' => 'site/<alias>',
                 '<alias:balance|sendbalance>' => 'balance/<alias>',
-                '<alias:index|update|view>' => 'login/<alias>',
+                '<alias:index|view>' => 'login/<alias>',
+                'login/<id:\d[0-9]>' => 'login/update',
             ],
         ],
         'request' => [

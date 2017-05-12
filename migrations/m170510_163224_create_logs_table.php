@@ -11,7 +11,7 @@ class m170510_163224_create_logs_table extends Migration
             'operation' => $this->primaryKey(),
             'who' => $this->string(128),
             'towhom' => $this->string(128),
-            'howmuch' => $this->float(),
+            'howmuch' => ('NUMERIC(19,4)'),
             'date' => $this->timestamp(),
         ]);
     }

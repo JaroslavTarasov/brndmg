@@ -6,6 +6,7 @@ use app\models\Logs;
 use Yii;
 use app\models\Login;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -16,6 +17,17 @@ class BalanceController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['balance', 'sendbalance'],
+                'rules' => [
+                    [
+                        'actions' => ['balance', 'sendbalance'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
